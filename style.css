@@ -1,0 +1,20 @@
+.game {
+  display: flex;
+  justify-content: center;
+}
+
+.torre {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100px;
+  height: 200px;
+}
+
+.torre::after {
+  content: "";
+  width: 100px;
+}
+
+.cone {
+  width: 100px;
+}
