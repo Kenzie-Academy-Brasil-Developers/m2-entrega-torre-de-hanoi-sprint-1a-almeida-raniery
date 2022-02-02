@@ -1,20 +1,32 @@
+body {
+  background-color: #35e2c3;
+}
+
 .game {
   display: flex;
-  justify-content: center;
+  width: 320px;
+  height: 480px;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: auto;
 }
 
 .torre {
   display: flex;
   flex-direction: column-reverse;
-  width: 100px;
-  height: 200px;
-}
-
-.torre::after {
-  content: "";
-  width: 100px;
+  align-items: center;
+  width: 120px;
+  height: 400px;
 }
 
 .cone {
-  width: 100px;
+  width: 80px;
+}
+
+.bola {
+  margin-bottom: -24px;
+}
+
+.selected img:last-child {
+  margin-bottom: 5px;
 }
