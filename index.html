@@ -5,13 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/de286eeaa3.js" crossorigin="anonymous"></script>
     <title>Ice Cream Conundrum</title>
   </head>
   <body>
     <header>
       <h1 class="titulo" id="gameHeaderMessage">Ah, não!</h1>
+      <section class = "flavor" id = "flavorText">
+        <h3>Eu errei o pedido do nosso cliente mais exigente!</h3>
+        <h3>Você pode me ajudar?</h3>
+      </section>
+      <div class="collapse instrucoes" id = "instrucoes">
+        <p>
+          Nosso cliente mais fiel é também o mais exigente. Ele sempre pede que as
+          bolas de sorvete sejam empilhadas da
+          <span class="texto-rosa">maior</span> para a <span class="texto-baunilha">menor</span>, em um cone
+          <span class="texto-azul">azul</span>.
+        </p>
+        <p>
+          Será que conseguimos colocar o sorvete no cone <span class="texto-azul">certo</span>? 
+        </p>
+        <p>
+          <span class="texto-rosa">Lembrando que</span>:
+          <ul>
+           <li>
+            Você só pode mover <span class="texto-azul">uma</span> bola de cada vez.
+           </li> 
+           <li>
+            Uma bola <span class="texto-rosa">não</span> pode ser empilhada sobre outra <span class="texto-baunilha">menor</span> que ela.
+           </li> 
+          </ul>
+        </p>
+      </div>
+      <div id="collapseArrow">
+        <h4>Instruções</h4>
+        <i class="fas fa-chevron-down"></i>
+      </div>
     </header>
     <section class="game" id="gameContainer"></section>
-    <script src="script.js"></script>
+    <section class="painel-ctrl" id="painelCtrl">
+      <button id="resetBtn"><i class="fas fa-sync-alt"></i> Reset</button>
+      <label for="dificuldade">Dificuldade:</label>
+      <select name="dificuldade" id="selectDificuldade">
+        <option value="0">Fácil</option>
+        <option value="1">Médio</option>
+        <option value="2">Difícil</option>
+      </select>
+    </section>
+    <script src="pageScript.js"></script>
+    <script src="gameScript.js"></script>
   </body>
 </html>

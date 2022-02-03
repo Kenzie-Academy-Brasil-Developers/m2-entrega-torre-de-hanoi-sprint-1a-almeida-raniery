@@ -8,21 +8,48 @@
   src: url(/fontes/MouseMemoirs-Regular.ttf);
 }
 
+body {
+  font-family: Boogaloo, serif;
+  font-size: 1.3em;
+  color: white;
+  text-shadow: 2px 2px cadetblue;
+  background-color: #35e2c3;
+}
+
 h1 {
   font-family: "Mouse Memoirs", serif;
   font-size: 3.5em;
   text-align: center;
-  color: #f3e5ab;
+  margin: 0.2em 0;
 }
 
-body {
-  background-color: #35e2c3;
+h3 {
+  font-family: Boogaloo, serif;
+  font-size: 1.2em;
+  text-align: center;
+  margin: 0.2em auto 0.6em;
+  line-height: 1em;
+  max-width: 380px;
+}
+
+h4 {
+  font-size: 0.9em;
+  margin: 0;
+}
+
+p,
+ul,
+li {
+  font-size: 1.1em;
+  max-width: 320px;
+  margin: 0.6em auto;
+  text-align: left;
 }
 
 .game {
   display: flex;
-  width: 320px;
-  height: 420px;
+  width: 300px;
+  height: 380px;
   justify-content: space-between;
   align-items: flex-end;
   margin: auto;
@@ -45,4 +72,63 @@ body {
 
 .selected img:last-child {
   margin-bottom: 5px;
+}
+
+.texto-rosa {
+  color: #ff83c3;
+  text-transform: uppercase;
+}
+
+.texto-azul {
+  color: #14d0f0;
+  text-transform: uppercase;
+}
+
+.texto-baunilha {
+  color: #f3e5ab;
+  text-transform: uppercase;
+}
+
+.collapse {
+  display: none;
+}
+
+.instrucoes {
+  background-color: #0991785e;
+  padding: 0.8em;
+}
+
+.fa-chevron-down {
+  font-size: 1.5em;
+}
+
+.fa-chevron-up {
+  order: -1;
+}
+
+.painel-ctrl {
+  margin: 20px auto;
+  width: 300px;
+  text-align: center;
+}
+
+.painel-ctrl button,
+.painel-ctrl select {
+  padding: 8px 10px;
+  font-family: Boogaloo, serif;
+  color: white;
+  font-size: 1em;
+  background-color: #07a9c5;
+  border: #f3e5ab solid 3px;
+}
+
+.painel-ctrl option {
+  background-color: #07a9c5;
+  color: white;
+}
+
+#collapseArrow {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }

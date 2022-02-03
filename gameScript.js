@@ -1,25 +1,31 @@
-window.onload = initGame;
+window.onload = loadGame;
 
-function initGame() {
-  const gameState = {
-    torreAlvoId: "torreAzul",
-    torreInicialId: "torreAmarelo",
-    alturaMaxima: 3,
-    turnos: 0,
-  };
+function loadGame() {
+  const gameStateString = localStorage.getItem("gameState");
 
-  const coresBola = ["Rosa", "Roxa", "Baunilha"];
+  const gameState = !gameStateString
+    ? newGameState()
+    : JSON.parse(gameStateString);
+
+  initGame(gameState);
+}
+
+function initGame(gameState) {
+  const coresBola = ["Chocolate", "Rosa", "Baunilha", "Roxa", "Verde"];
   const coresCone = ["Rosa", "Amarelo", "Azul"];
   const gameContainer = document.getElementById("gameContainer");
 
-  criarTorres(gameState.alturaMaxima, coresCone, gameContainer);
+  gameContainer.innerHTML = "";
+
+  criarTorres(3, coresCone, gameContainer);
   criarBolas(
     gameState.alturaMaxima,
     coresBola,
     document.getElementById("torreAmarelo")
   );
 
-  gameContainer.addEventListener("click", handleClicks);
+  gameContainer.addEventListener("click", handleGameClicks);
+  gameContainer.addEventListener("resetGame", () => console.log("dun"));
   gameContainer.setAttribute("data-state", JSON.stringify(gameState));
 }
 
@@ -43,7 +49,7 @@ function criarBolas(quant, cores, parent = document.body) {
   for (i = 0; i < quant; i++) {
     const bola = document.createElement("img");
 
-    bola.style.width = `${90 - i * 12}px`;
+    bola.style.width = `${95 - i * 12}px`;
     bola.id = "bola" + cores[i];
     bola.src = "/imagens/Bola-" + cores[i] + ".svg";
 
@@ -53,11 +59,13 @@ function criarBolas(quant, cores, parent = document.body) {
   }
 }
 
-function handleClicks(event) {
+function handleGameClicks(event) {
   const gameState = JSON.parse(event.currentTarget.dataset.state);
   const torreTarget = event.target.closest("div.torre");
   const select = document.querySelector(".selected");
   const torreTopo = torreTarget.lastChild;
+
+  esconderFlavorText();
 
   if (!select && torreTopo.classList.contains("bola")) {
     torreTarget.classList.add("selected");
@@ -81,21 +89,47 @@ function moverBola(bola, torre, gameState) {
   }
 }
 
-function updateGameHeader({ alturaMaxima, torreAlvoId }) {
-  if (vitoriaAlcancada(torreAlvoId, alturaMaxima)) {
-    mostrarMensagemVitoria();
-  }
-}
-
-function vitoriaAlcancada(torreAlvoId, alturaMaxima) {
+function updateGameHeader({ alturaMaxima, torreAlvoId, turnos }) {
+  const gameHeaderMessage = document.getElementById("gameHeaderMessage");
   const targetTorre = document.getElementById(torreAlvoId);
   const bolas = targetTorre.querySelectorAll(".bola");
 
-  return bolas.length === alturaMaxima;
+  if (bolas.length === alturaMaxima) {
+    gameHeaderMessage.innerText = "Conseguiu!";
+  } else if (targetTorre.lastChild.id === "bolaChocolate") {
+    gameHeaderMessage.innerText = "Um já foi!";
+  } else if (bolas.length === alturaMaxima - 1) {
+    gameHeaderMessage.innerText = "Quase lá!";
+  } else if (bolas.length > 2) {
+    gameHeaderMessage.innerText = "Continua!";
+  } else if (turnos === 0) {
+    gameHeaderMessage.innerText = "Vamos lá!";
+  }
 }
 
-function mostrarMensagemVitoria() {
+function newGameState(
+  dificuldade = 0,
+  alvoId = "torreAzul",
+  inicialId = "torreRosa"
+) {
+  const newState = {
+    torreAlvoId: alvoId,
+    torreInicialId: inicialId,
+    alturaMaxima: 3 + dificuldade,
+    turnos: 0,
+  };
+
+  window.localStorage.setItem("gameState", JSON.stringify(newState));
+
+  return newState;
+}
+
+function esconderFlavorText() {
+  const flavorText = document.getElementById("flavorText");
   const gameHeaderMessage = document.getElementById("gameHeaderMessage");
 
-  gameHeaderMessage.innerText = "Parabéns!";
+  if (!flavorText.classList.contains("collapse")) {
+    flavorText.classList.add("collapse");
+    gameHeaderMessage.innerText = "Vamos lá!";
+  }
 }
