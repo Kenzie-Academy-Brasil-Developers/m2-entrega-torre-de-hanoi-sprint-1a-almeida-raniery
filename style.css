@@ -1,3 +1,20 @@
+@font-face {
+  font-family: Boogaloo;
+  src: url(/fontes/Boogaloo-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Mouse Memoirs";
+  src: url(/fontes/MouseMemoirs-Regular.ttf);
+}
+
+h1 {
+  font-family: "Mouse Memoirs", serif;
+  font-size: 3.5em;
+  text-align: center;
+  color: #f3e5ab;
+}
+
 body {
   background-color: #35e2c3;
 }
@@ -5,7 +22,7 @@ body {
 .game {
   display: flex;
   width: 320px;
-  height: 480px;
+  height: 420px;
   justify-content: space-between;
   align-items: flex-end;
   margin: auto;
@@ -16,7 +33,6 @@ body {
   flex-direction: column-reverse;
   align-items: center;
   width: 120px;
-  height: 400px;
 }
 
 .cone {
