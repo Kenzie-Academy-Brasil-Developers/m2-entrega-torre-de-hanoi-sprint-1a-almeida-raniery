@@ -1,11 +1,11 @@
 @font-face {
   font-family: Boogaloo;
-  src: url(/fontes/Boogaloo-Regular.ttf);
+  src: url(fontes/Boogaloo-Regular.ttf);
 }
 
 @font-face {
   font-family: "Mouse Memoirs";
-  src: url(/fontes/MouseMemoirs-Regular.ttf);
+  src: url(fontes/MouseMemoirs-Regular.ttf);
 }
 
 body {

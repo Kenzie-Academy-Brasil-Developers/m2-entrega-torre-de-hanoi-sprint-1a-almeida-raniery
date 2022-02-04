@@ -39,7 +39,7 @@ function criarTorres(quant, cores, parent = document.body) {
     cone.classList.add("cone");
     torreContainer.classList.add("torre");
 
-    cone.src = "./imagens/Cone-" + cores[i] + ".svg";
+    cone.src = "imagens/Cone-" + cores[i] + ".svg";
     torreContainer.id = "torre" + cores[i];
 
     torreContainer.appendChild(cone);
@@ -53,7 +53,7 @@ function criarBolas(quant, cores, parent = document.body) {
 
     bola.style.width = `${95 - i * 12}px`;
     bola.id = "bola" + cores[i];
-    bola.src = "./imagens/Bola-" + cores[i] + ".svg";
+    bola.src = "imagens/Bola-" + cores[i] + ".svg";
 
     bola.classList.add("bola");
 
