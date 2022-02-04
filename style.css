@@ -1,15 +1,21 @@
 @font-face {
-  font-family: Boogaloo;
-  src: url(fontes/Boogaloo-Regular.ttf);
+  font-family: "Mouse Memoirs";
+  src: url("fontes/mousememoirs-regular-webfont.woff2") format("woff2"),
+    url("fontes/mousememoirs-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Mouse Memoirs";
-  src: url(fontes/MouseMemoirs-Regular.ttf);
+  font-family: "Boogaloo";
+  src: url("fontes/boogaloo-regular-webfont.woff2") format("woff2"),
+    url("fontes/boogaloo-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
-  font-family: Boogaloo, serif;
+  font-family: "Boogaloo", serif;
   font-size: 1.3em;
   color: white;
   text-shadow: 2px 2px cadetblue;
