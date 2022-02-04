@@ -107,7 +107,10 @@ li {
 }
 
 .painel-ctrl {
-  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 5px auto;
   width: 300px;
   text-align: center;
 }
@@ -120,11 +123,21 @@ li {
   font-size: 1em;
   background-color: #07a9c5;
   border: #f3e5ab solid 3px;
+  max-height: 2.5em;
+}
+
+.painel-ctrl button:active {
+  transform: scale(0.92);
 }
 
 .painel-ctrl option {
   background-color: #07a9c5;
   color: white;
+}
+
+.dif-container {
+  display: flex;
+  flex-direction: column;
 }
 
 #collapseArrow {

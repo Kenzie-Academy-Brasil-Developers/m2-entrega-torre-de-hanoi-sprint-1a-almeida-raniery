@@ -28,6 +28,7 @@ painelCtrl.addEventListener("change", (event) => {
 
     gameState.alturaMaxima = 3 + parseInt(select.value);
     localStorage.setItem("gameState", JSON.stringify(gameState));
+
     esconderFlavorText();
     initGame(gameState);
     updateGameHeader(gameState);

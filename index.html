@@ -45,12 +45,15 @@
     <section class="game" id="gameContainer"></section>
     <section class="painel-ctrl" id="painelCtrl">
       <button id="resetBtn"><i class="fas fa-sync-alt"></i> Reset</button>
-      <label for="dificuldade">Dificuldade:</label>
-      <select name="dificuldade" id="selectDificuldade">
+      <p id="displayTurnos">Turnos: 0</p>
+      <div class="dif-container">
+       <label for="dificuldade">Dificuldade:</label>
+        <select name="dificuldade" id="selectDificuldade">
         <option value="0">Fácil</option>
-        <option value="1">Médio</option>
-        <option value="2">Difícil</option>
-      </select>
+          <option value="1">Médio</option>
+          <option value="2">Difícil</option>
+        </select>
+      </div>
     </section>
     <script src="pageScript.js"></script>
     <script src="gameScript.js"></script>

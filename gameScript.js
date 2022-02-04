@@ -14,8 +14,10 @@ function initGame(gameState) {
   const coresBola = ["Chocolate", "Rosa", "Baunilha", "Roxa", "Verde"];
   const coresCone = ["Rosa", "Amarelo", "Azul"];
   const gameContainer = document.getElementById("gameContainer");
+  const displayTurnos = document.getElementById("displayTurnos");
 
   gameContainer.innerHTML = "";
+  displayTurnos.innerText = "Turnos: 0";
 
   criarTorres(3, coresCone, gameContainer);
   criarBolas(
@@ -60,9 +62,10 @@ function criarBolas(quant, cores, parent = document.body) {
 }
 
 function handleGameClicks(event) {
-  const gameState = JSON.parse(event.currentTarget.dataset.state);
+  const currentState = JSON.parse(event.currentTarget.dataset.state);
   const torreTarget = event.target.closest("div.torre");
   const select = document.querySelector(".selected");
+  const displayTurnos = document.getElementById("displayTurnos");
   const torreTopo = torreTarget.lastChild;
 
   esconderFlavorText();
@@ -70,8 +73,12 @@ function handleGameClicks(event) {
   if (!select && torreTopo.classList.contains("bola")) {
     torreTarget.classList.add("selected");
   } else if (select) {
-    moverBola(select.lastChild, torreTarget, gameState);
+    moverBola(select.lastChild, torreTarget, currentState);
+
     select.classList.remove("selected");
+
+    event.currentTarget.dataset.state = JSON.stringify(currentState);
+    displayTurnos.innerText = "Turnos: " + currentState.turnos;
   }
 }
 
@@ -86,6 +93,7 @@ function moverBola(bola, torre, gameState) {
   if (widthBola < widthTopo) {
     torre.appendChild(bola);
     updateGameHeader(gameState);
+    gameState.turnos++;
   }
 }
 
